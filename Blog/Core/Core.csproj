@@ -6,4 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Aspects\Caching\" />
+    <Folder Include="Aspects\Validation\" />
+    <Folder Include="Aspects\Transaction\" />
+    <Folder Include="Aspects\Performance\" />
+    <Folder Include="CorssCuttingConcerns\Caching\Microsoft\" />
+    <Folder Include="CorssCuttingConcerns\Validation\" />
+    <Folder Include="DataAccess\EntityFramework\" />
+    <Folder Include="DependencyResolvers\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
 </Project>
