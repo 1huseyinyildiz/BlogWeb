@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Aspects\" />
+    <Folder Include="Authentication\" />
+    <Folder Include="DependencyResolvers\Autofac\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Utilities\File\" />
+  </ItemGroup>
+
 </Project>
