@@ -1,0 +1,93 @@
+# .NET Core
+bin/
+obj/
+*.db
+*.bak
+*.sqlite
+
+# Visual Studio
+.vscode/
+.vs/
+.vscode/
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/c_cpp_properties.json
+.vscode/jsconfig.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+*.tlog
+*.out
+*.log.gz
+*.dmp
+*.orig
+*.prv
+*.gz
+*.tmp
+*.swp
+*.lock
+*.sublime-workspace
+
+# Angular
+node_modules/
+dist/
+tmp/
+temp/
+*.tsbuildinfo
+*.tscache
+*.ts
+*.ngsummary.json
+*.ngfactory.ts
+*.ngfactory.d.ts
+*.ngsummary.ts
+*.ngsummary.d.ts
+.ejs
+
+# Environment
+.env
+.env.*
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
+docker-compose.*
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Publish directory
+wwwroot/
+
+# Package Files
+*.nupkg
+*.snupkg
+*.tgz
+*.tar.gz
+
+# Project files
+*.pidb
+*.csproj.user
+*.ds_store
+*.pdb
+
+# Webpack
+/.yarn
+/.pnp.*
+.pnp.*
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
