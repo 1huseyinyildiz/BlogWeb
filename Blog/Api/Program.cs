@@ -1,6 +1,16 @@
+using Data.Concrete.Mongodb.Context;
+using Data.Concrete.Mongodb.Entity;
+using Entities.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+
+var serviceProvider = new ServiceCollection()
+            .AddSingleton<BlogMongoDbContext>()
+            .Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDBSettings"))
+            .BuildServiceProvider();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

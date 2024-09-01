@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities.Concrete
+namespace Entities.Concrete
 {
     public class Comment : BaseClass
     {
-        public string Text { get; set; }
+        public string Text { get; set; } = null!;
         public int PostId { get; set; }
-        public Post Post { get; set; }
+        public Post Post { get; set; } = null!;
     }
 }
