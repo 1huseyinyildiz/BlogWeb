@@ -1,4 +1,4 @@
-﻿using Data.Entities.Concrete;
+﻿using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,17 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Context.EntityFramework
+namespace Data.Concrete.EntityFramework.Context
 {
 
     public class BlogDbContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
-        public DbSet<User> Users { get; set; }
+
         public DbSet<Comment> Comments { get; set; }
 
-        public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
+        public DbSet<Entities.Concrete.User> Users { get; set; }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("");
         }
 
     }
