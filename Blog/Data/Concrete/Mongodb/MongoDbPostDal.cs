@@ -6,15 +6,15 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Entities.Concrete;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data.Concrete.Mongodb
 {
-    public class MongoDbPostDal : MongodbRepositoryDal<User>, IUserDal
+    public class MongodbPostDal : MongodbRepositoryDal<Post>, IPostDal
     {
-        public MongoDbPostDal(IMongoDatabase database, string collectionName) : 
-            base(database, collectionName)
+        public MongodbPostDal(IMongoDatabase database) : base(database, "Posts")
         {
         }
     }

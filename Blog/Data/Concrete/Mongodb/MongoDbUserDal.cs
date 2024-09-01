@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace Data.Concrete.Mongodb
 {
-    public class MongoDbUserDal : MongodbRepositoryDal<User>, IUserDal
+    public class MongodbUserDal : MongodbRepositoryDal<User>, IUserDal
     {
-        public MongoDbUserDal(IMongoDatabase database, string collectionName) : base(database, collectionName)
+        public MongodbUserDal(IMongoDatabase database) : base(database, "Users")
         {
         }
     }
