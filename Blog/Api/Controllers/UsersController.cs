@@ -18,13 +18,6 @@ namespace Api.Controllers
             _userService = userService;
         }
 
-        [HttpPost("add")]
-        public IActionResult Add(AutDto autoDto)
-        {
-            _userService.Add(autoDto);
-            return Ok("Kayıt işlemi başarıyla tamamlandı");
-        }
-
         [HttpGet("getList")]
         public async Task<IActionResult> GetUsers()
         {

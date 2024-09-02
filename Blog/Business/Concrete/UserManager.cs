@@ -10,12 +10,15 @@ namespace Business.Concrete
     {
         private readonly IUserDal _userDal;
 
-        public UserManager(IUserDal userDal)
+        private readonly IAuthService _authService;
+
+        public UserManager(IUserDal userDal, IAuthService authService)
         {
             _userDal = userDal;
+            _authService = authService;
         }
 
-        public void Add(AutDto autDto)
+        public void Add(RegisterDto autDto)
         {
             byte[] passwordHash, passwordSalt;
 

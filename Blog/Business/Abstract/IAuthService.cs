@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Business.Abstract
 {
-    public interface IUserService
+    public interface IAuthService
     {
-        void Add(RegisterDto autDto);
+        void Register(RegisterDto registerDto);
 
-        Task<List<User>> GetAllUsersAsync();
+        void Login(LoginAutDto loginAutDto);
+
+        User GetByEmail(string email);
     }
 }

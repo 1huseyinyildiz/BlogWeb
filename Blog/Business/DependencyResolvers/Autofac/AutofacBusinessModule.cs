@@ -23,6 +23,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<PostManager>().As<IPostService>();
             builder.RegisterType<MongodbPostDal>().As<IPostDal>();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+
         }
     }
 }

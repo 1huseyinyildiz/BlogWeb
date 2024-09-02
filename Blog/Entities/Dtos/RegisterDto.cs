@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Dtos
 {
-    public class AutDto
+    public class RegisterDto
     {
         public string? Email { get; set; }
 
