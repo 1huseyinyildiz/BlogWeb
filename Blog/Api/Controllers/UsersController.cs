@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using Data.Entities.Concrete;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ZstdSharp.Unsafe;
 
 namespace Api.Controllers
 {
@@ -17,17 +19,17 @@ namespace Api.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(User user)
+        public IActionResult Add(AutDto autoDto)
         {
-            _userService.Add(user);
+            _userService.Add(autoDto);
             return Ok("Kayıt işlemi başarıyla tamamlandı");
         }
 
-        [HttpGet("get")]
-        public IActionResult GetAll()
+        [HttpGet("getList")]
+        public async Task<IActionResult> GetUsers()
         {
-            _userService.GetAll();
-            return Ok("Kayıt işlemi başarıyla tamamlandı");
+            var users = await _userService.GetAllUsersAsync();
+            return Ok(users);
         }
     }
 }

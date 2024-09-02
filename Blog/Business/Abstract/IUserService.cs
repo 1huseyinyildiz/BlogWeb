@@ -1,4 +1,5 @@
 ﻿using Data.Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,7 @@ namespace Business.Abstract
 {
     public interface IUserService
     {
-        void Add(User user);
-
-        void GetAll();
+        void Add(AutDto autDto);
+        Task<List<User>> GetAllUsersAsync();
     }
 }

@@ -1,12 +1,8 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Hashing;
 using Data.Absract;
 using Data.Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using Entities.Dtos;
 
 namespace Business.Concrete
 {
@@ -19,15 +15,32 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        public void Add(User user)
+        public void Add(AutDto autDto)
         {
+            byte[] passwordHash, passwordSalt;
+
+            HashingHelper.CreatePassword(autDto.Password, out passwordHash, out passwordSalt);
+
+            User user = new User()
+            {
+                CreateTime = DateTime.Now,
+                Email = autDto.Email,
+                FullName = autDto.FullName,
+                PasswordldHash = passwordHash,
+                PasswordldSalt = passwordSalt,
+                UserName = autDto.Email,
+                UpdateTime = DateTime.Now,
+                ImageUrl = ""
+            };
+
+
             _userDal.CreateAsync(user);
 
         }
 
-        public void GetAll()
+        public async Task<List<User>> GetAllUsersAsync()
         {
-            _userDal.GetAllAsync();
+            return await _userDal.GetAllAsync();
         }
     }
 }

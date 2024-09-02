@@ -15,8 +15,14 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<IUserService>().As<UserManager>();
-            builder.RegisterType<IUserDal>().As<MongodbUserDal>();
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<MongodbUserDal>().As<IUserDal>();
+
+            builder.RegisterType<CommentManager>().As<ICommentService>();
+            builder.RegisterType<MongodbCommentDal>().As<ICommentDal>();
+
+            builder.RegisterType<PostManager>().As<IPostService>();
+            builder.RegisterType<MongodbPostDal>().As<IPostDal>();
         }
     }
 }

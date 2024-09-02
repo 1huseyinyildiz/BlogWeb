@@ -14,7 +14,7 @@ public class MongodbRepositoryDal<TEntity> : IEntityRepositoryBase<TEntity> wher
 
     public async Task<List<TEntity>> GetAllAsync()
     {
-        return await _collection.Find(x=>true).ToListAsync();
+        return await _collection.Find(_ => true).ToListAsync();
     }
 
     public async Task<TEntity> GetByIdAsync(string id)

@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccess;
 using Data.Entities.Concrete;
+using Entities.Dtos;
 
 namespace Data.Absract
 {
-    public  interface IUserDal: IEntityRepositoryBase<User>
+    public interface IUserDal : IEntityRepositoryBase<User>
     {
+        
     }
 }
