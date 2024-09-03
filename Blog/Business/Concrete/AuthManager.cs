@@ -1,12 +1,14 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Utilities.Hashing;
+using Core.Utilities.Result;
+using Core.Utilities.Result.Absract;
+using Core.Utilities.Result.Concrete;
+using Data.CrossCuttingConcerns.Validation;
 using Data.Entities.Concrete;
 using Entities.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using FluentValidation;
+using FluentValidation.Results;
 namespace Business.Concrete
 {
     public class AuthManager : IAuthService
@@ -16,7 +18,7 @@ namespace Business.Concrete
         private readonly IAuthService _authService;
 
 
-        public AuthManager(IUserService userService, IAuthService authService)  
+        public AuthManager(IUserService userService, IAuthService authService)
         {
             _authService = authService;
         }
@@ -26,14 +28,37 @@ namespace Business.Concrete
             return _authService.GetByEmail(email);
         }
 
-        public void Login(LoginAutDto loginDto)
+        public string Login(LoginAutDto loginAutDto)
         {
-            //login işlemleri
+            var user = _authService.GetByEmail(loginAutDto.Email);
+            var result = HashingHelper.VerifyPasswordHas(loginAutDto.Password, user.PasswordldHash, user.PasswordldSalt);
+
+            return result == false ? "Kullanıcı girişi başarısız" : "Kullanıcı girişi başarılı";
         }
 
-        public void Register(RegisterDto autDto)
+        public IResult Register(RegisterDto registerDto)
         {
-            _userService.Add(autDto);
+            AutValidator authValidator = new AutValidator();
+            ValidationTool.Validate(authValidator, registerDto);
+            bool isExist = CheckIfEmailExists(registerDto.Email);
+
+            if (isExist)
+            {
+                _userService.Add(registerDto);
+                return new SuccessResult("işlem başarılıdır.");
+
+            }
+            else
+            {
+                return new ErrorResult("işlem başarısızdır.");
+
+            }
+        }
+
+        bool CheckIfEmailExists(string email)
+        {
+            var list = _userService.GetByEmail(email);
+            return list != null ? false : true;
         }
     }
 }

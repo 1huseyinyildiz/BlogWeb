@@ -11,6 +11,6 @@ namespace Data.Absract
 {
     public interface IUserDal : IEntityRepositoryBase<User>
     {
-        
+      
     }
 }

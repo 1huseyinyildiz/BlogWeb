@@ -1,6 +1,7 @@
 ﻿using Core.DataAccess;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 public class MongodbRepositoryDal<TEntity> : IEntityRepositoryBase<TEntity> where TEntity : class
@@ -35,5 +36,11 @@ public class MongodbRepositoryDal<TEntity> : IEntityRepositoryBase<TEntity> wher
     public async Task DeleteAsync(string id)
     {
         await _collection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("Id", id));
+    }
+
+    public TEntity Get(Expression<Func<TEntity, bool>> filter)
+    {
+        //FILTER DONT FORGET
+        throw new NotImplementedException();
     }
 }

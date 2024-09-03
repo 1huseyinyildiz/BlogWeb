@@ -45,5 +45,12 @@ namespace Business.Concrete
         {
             return await _userDal.GetAllAsync();
         }
+
+        public User GetByEmail(string email)
+        {
+            var result= _userDal.Get(x => x.Email == email);
+
+            return result;
+        }
     }
 }

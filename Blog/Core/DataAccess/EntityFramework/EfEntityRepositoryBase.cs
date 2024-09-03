@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
-public class EfEntityRepositoryBase<TEntity, Tcontext> : IEntityRepositoryBase<TEntity> 
+public class EfEntityRepositoryBase<TEntity, Tcontext> : IEntityRepositoryBase<TEntity>
     where TEntity : class,new()
     where Tcontext:DbContext, new()
 {
@@ -47,5 +48,10 @@ public class EfEntityRepositoryBase<TEntity, Tcontext> : IEntityRepositoryBase<T
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
         }
-    }   
+    }
+
+    public TEntity Get(Expression<Func<TEntity, bool>> filter)
+    {
+        return _dbSet.SingleOrDefault(filter);
+    }
 }
