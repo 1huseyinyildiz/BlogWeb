@@ -1,4 +1,6 @@
-﻿using Data.Entities.Concrete;
+﻿using Core.Utilities.Result;
+using Core.Utilities.Result.Absract;
+using Data.Entities.Concrete;
 using Entities.Dtos;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,9 @@ namespace Business.Abstract
 {
     public interface IAuthService
     {
-        void Register(RegisterDto registerDto);
+        IResult Register(RegisterDto registerDto);
 
-        void Login(LoginAutDto loginAutDto);
+        string Login(LoginAutDto loginAutDto);
 
         User GetByEmail(string email);
     }

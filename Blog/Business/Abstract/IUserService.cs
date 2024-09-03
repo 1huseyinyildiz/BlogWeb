@@ -14,5 +14,7 @@ namespace Business.Abstract
         void Add(RegisterDto autDto);
 
         Task<List<User>> GetAllUsersAsync();
+
+        public User GetByEmail(string email);
     }
 }

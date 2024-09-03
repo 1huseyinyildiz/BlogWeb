@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Amazon.SecurityToken.Model;
+using System.Linq.Expressions;
 
 namespace Core.DataAccess
 {
@@ -9,5 +10,6 @@ namespace Core.DataAccess
         Task CreateAsync(TEntity entity);
         Task UpdateAsync(string id, TEntity entity);
         Task DeleteAsync(string id);
+        TEntity Get(Expression<Func<TEntity,bool>> filter);
     }
 }

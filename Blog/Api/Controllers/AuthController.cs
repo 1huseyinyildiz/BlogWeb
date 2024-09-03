@@ -24,12 +24,12 @@ namespace Api.Controllers
             return Ok("Register Successfull");
         }
 
-        [HttpPost("register")]
-        public IActionResult Login(RegisterDto registerDto)
+        [HttpPost("login")]
+        public IActionResult Login(LoginAutDto loginAutDto)
         {
-            _authService.Register(registerDto);
+            _authService.Login(loginAutDto);
 
-            return Ok("Register Successfull");
+            return Ok("Login Successfull");
         }
     }
 }
