@@ -49,22 +49,3 @@ Includes utility classes for common operations.
     ```bash
     git clone https://github.com/yourusername/blog-app.git
     ```
-
-2. **Run the application**:
-    - Backend: 
-      - Navigate to the `/Api` folder and run:
-        ```bash
-        dotnet run
-        ```
-    - Frontend: 
-      - Navigate to the `/ClientApp` folder and run:
-        ```bash
-        ng serve
-        ```
-
-3. **Jenkins Auto-Deploy**:
-    Jenkins is configured for automatic deployment with a pipeline that builds and deploys the project upon changes pushed to the repository.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
