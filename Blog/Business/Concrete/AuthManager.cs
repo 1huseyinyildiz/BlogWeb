@@ -40,9 +40,8 @@ namespace Business.Concrete
         {
             AutValidator authValidator = new AutValidator();
             ValidationTool.Validate(authValidator, registerDto);
-            bool isExist = CheckIfEmailExists(registerDto.Email);
 
-            if (isExist)
+            if (CheckIfEmailExists(registerDto.Email))
             {
                 _userService.Add(registerDto);
                 return new SuccessResult("işlem başarılıdır.");
