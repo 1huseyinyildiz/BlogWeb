@@ -32,4 +32,39 @@ The core library providing base functionalities shared across different layers.
 ### **Data**
 Responsible for managing entities and data transfer objects (DTOs).
 - `Entities`: Defines the data models used throughout the application.
-- `Repositories`: Abstract repository pattern implementation for dat
+- `Repositories`: Abstract repository pattern implementation for data access.
+
+### **Extensions**
+Utility functions and middleware components that extend the functionality of the application.
+- `ExceptionMiddleware`: Handles global exception handling.
+- `ServiceCollectionExtensions`: Helper methods for setting up dependency injection.
+
+### **Utilities**
+Includes utility classes for common operations.
+- `Hashing`: Contains functions for hashing and encrypting sensitive data.
+  
+## Getting Started
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/blog-app.git
+    ```
+
+2. **Run the application**:
+    - Backend: 
+      - Navigate to the `/Api` folder and run:
+        ```bash
+        dotnet run
+        ```
+    - Frontend: 
+      - Navigate to the `/ClientApp` folder and run:
+        ```bash
+        ng serve
+        ```
+
+3. **Jenkins Auto-Deploy**:
+    Jenkins is configured for automatic deployment with a pipeline that builds and deploys the project upon changes pushed to the repository.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
